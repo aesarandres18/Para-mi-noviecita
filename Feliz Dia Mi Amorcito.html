@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Día de San Valentín, Sandri!</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #ff6b6b, #ff8c8c);
+            overflow: hidden; /* Para evitar barras de desplazamiento */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            text-align: center;
+        }
+
+        h1 {
+            color: #ff4d4d;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .heart-icon {
+            width: 30px;
+            height: 30px;
+            margin-left: 10px;
+            vertical-align: middle;
+            clip-path: 💘💘💘(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        
+        }
+
+        .rose-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            clip-path: 🌹(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .yes-button {
+            background-color: #ff4d4d;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .yes-button:hover {
+            background-color: #ff3333;
+        }
+
+        .no-button {
+            background-color: transparent;
+            color: #ff4d4d;
+            padding: 15px 30px;
+            border: 2px solid #ff4d4d;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .no-button:hover {
+            transform: scale(1.1);
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #ff4d4d;
+            display: none;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            clip-path: 💘💘💘(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            animation: float 5s linear infinite;
+        }
+
+        .heart:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .heart:nth-child(2) {
+            left: 30%;
+            animation-delay: 1s;
+        }
+
+        .heart:nth-child(3) {
+            left: 50%;
+            animation-delay: 2s;
+        }
+
+        /* ... más corazones ... */
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .rose-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .yes-button, .no-button {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¿Quieres ser mi Valentín, Sandri? <img class="heart-icon" alt="💘"></h1>
+        <img class="rose-image" src="rose.jpg" alt="🌹">
+        <div class="buttons">
+            <button class="yes-button" onclick="showMessage()">Sí</button>
+            
+
+            
+            <button class="no-button" onmouseover="moveButton(this)">No</button>
+    
+           
+        </div>
+        <div class="message" id="message">¡Sabía que ibas a decir que sí! ¡Eres la mejor noviecita! Feliz Dia de San Valentin Te amo muchisimo 🤍</div>
+    </div>
+
+    <script>
+        function showMessage() {
+            document.getElementById("message").style.display = "block";
+        }
+
+        function moveButton(button) {
+            const maxX = window.innerWidth - button.offsetWidth;
+            const maxY = window.innerHeight - button.offsetHeight;
+
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            button.style.position = "absolute";
+            button.style.left = randomX + "px";
+            button.style.top = randomY + "px";
+        }
+    </script>
+
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    </body>
+</html>
